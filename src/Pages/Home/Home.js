@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
 
   const services = useLoaderData();
   console.log(services)
+  
  
     return (
   <div >
@@ -19,10 +20,10 @@ const Home = () => {
       <div>
     <h4 className='text-2xl'>My Services</h4>
     {
-      services.map(service => <p key="service_id">{service.service}</p>)
+      services.map(service => <p key="service_id" >{service.service}</p>)
     }
   </div>
-      <button className="btn btn-primary">See All</button>
+      <Link to='/servicess' ><button className="btn btn-primary">See All</button></Link>
     </div>
   </div>
   

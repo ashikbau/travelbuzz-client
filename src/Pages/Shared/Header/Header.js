@@ -55,12 +55,13 @@ const handleLogOut = () => {
             
             <Link className='mx-2' to='/login'>LogIn</Link>
             <Link className='mx-2' to='/register'>Register</Link>
+            <Link className='mx-2' to='/servicess'>Servises</Link>
             
      </li>
       <li tabIndex={0}>
        
       
-            <NavLink href="#deets">
+            <Link href="#deets">
               {
                 user?.uid ?
                   <>
@@ -75,8 +76,8 @@ const handleLogOut = () => {
               }
 
 
-            </NavLink>
-            <NavLink eventKey={2} href="#memes">
+            </Link>
+            <Link eventKey={2} href="#memes">
               {user?.photoURL ?
                 <image
                   style={{ height: '30px' }}
@@ -89,7 +90,7 @@ const handleLogOut = () => {
                 : <FaUser></FaUser>
               }
 
-            </NavLink>
+            </Link>
         
 
          
