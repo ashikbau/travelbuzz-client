@@ -1,7 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContex } from '../../../contex/AuthProvider/AuthProvider';
+import {  FaUser } from "react-icons/fa";
 
 const Header = () => {
+  const {providerGoogleLogin,logOut,user} = useContext(AuthContex)
+  const googleProvider = new GoogleAuthProvider();
+  const  handleGoogleSignIn =()=>{
+    providerGoogleLogin(googleProvider)
+    .then(result=>{
+        const user = result.user;
+        console.log(user);
+
+    })
+    .catch(error =>console.error(error))
+}
+
+const handleLogOut = () => {
+  logOut()
+      .then(() => { })
+      .catch(error => console.error(error))
+}
+
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -33,17 +54,53 @@ const Header = () => {
             <Link className='mx-2' to='/blog'>Blog</Link>
             
             <Link className='mx-2' to='/login'>LogIn</Link>
+            <Link className='mx-2' to='/register'>Register</Link>
             
      </li>
       <li tabIndex={0}>
        
+      
+            <NavLink href="#deets">
+              {
+                user?.uid ?
+                  <>
+                    <span>{user?.displayName}</span>
+                    <button onClick={handleLogOut} variant="light" >Log out</button>
+                  </>
+                  :
+                  <>
+                    <Link className='mx-2' to='/login'>Login</Link>
+                    <Link to='/register'>Register</Link>
+                  </>
+              }
+
+
+            </NavLink>
+            <NavLink eventKey={2} href="#memes">
+              {user?.photoURL ?
+                <image
+                  style={{ height: '30px' }}
+                  roundedCircle
+                  src={user?.photoURL}
+                  
+                  >
+
+                </image>
+                : <FaUser></FaUser>
+              }
+
+            </NavLink>
         
+
+         
       </li>
      
     </ul>
+
   </div>
+  
   <div className="navbar-end">
-    <Link className="btn">Get started</Link>
+    <Link  onClick={handleGoogleSignIn} className="btn">Google LogIn</Link>
   </div>
 </div>
         </div>
