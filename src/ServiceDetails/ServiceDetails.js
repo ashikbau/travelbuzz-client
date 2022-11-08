@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const ServiceDetails = () => {
-    const {service,img,description,price,rating} = useLoaderData();
+    const {_id,service,img,description,price,rating} = useLoaderData();
     return (
         <div>
             <section>
@@ -11,7 +11,7 @@ const ServiceDetails = () => {
   <div className="card-body">
     <h2 className="card-title">
      {service}
-      <div className="badge badge-secondary">NEW</div>
+      <div className="badge badge-secondary"><Link  to={`/review/${_id}`}>review</Link></div>
     </h2>
     <p>{description}</p>
     <div className="card-actions justify-end">
