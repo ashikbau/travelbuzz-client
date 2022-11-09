@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContex } from '../../contex/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const LogIn = () => {
 
     const {signIn,setLoading} = useContext(AuthContex)
+    useTitle('login')
 
     const handleSubmit = (event)=>{
         event.preventDefault();
