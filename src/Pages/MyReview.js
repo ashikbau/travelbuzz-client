@@ -38,6 +38,31 @@ const MyReview = () => {
         }
     }
 
+
+    const handleStatusUpdate = id => {
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+               
+            },
+            body: JSON.stringify({ status: 'Approved' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    const remaining = reviews.filter(rvr => rvr._id !== id);
+                    const approving = reviews.find(rvr => rvr._id === id);
+                    approving.status = 'Approved'
+
+                    const newOrders = [approving, ...remaining];
+                    setReviews(newOrders);
+                }
+            })
+    }
+
+
     return (
         <div>
             <h2 className="text-5xl">You have {reviews.length} Orders</h2>
@@ -58,6 +83,7 @@ const MyReview = () => {
                                 key={review._id}
                                 review={review}
                                 handleDelete = {handleDelete}
+                            handleStatusUpdate = {handleStatusUpdate}
                                 
                             ></ShowMyReview>):'No reviews Avaialable'
                             
