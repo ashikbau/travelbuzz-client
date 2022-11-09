@@ -18,9 +18,14 @@ const ServiceItems = ({ser}) => {
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">{service}</h2>
-    <p>{description}</p>
-    {/* <button>more</button>
-    <p>{description.slice(101,200)}</p> */}
+    {/* <p>{description}</p> */}
+    {
+                        description.length > 100 ?
+                            <p>{description.slice(0, 100) + '...'} <Link to={`/services/${_id}`}>Read More....</Link> </p>
+                            :
+                            <p>{description}</p>
+                    }
+    
     <div className="card-actions">
      <Link to={`/services/${_id}`}> <button className="btn btn-primary">View Details</button></Link>
     </div>
