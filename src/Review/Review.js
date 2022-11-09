@@ -20,7 +20,7 @@ const {service,_id} = useLoaderData();
         const message = form.message.value;
 
         const review = {
-            
+            ids:_id,
             service,
             name,
            email,
@@ -37,7 +37,7 @@ const {service,_id} = useLoaderData();
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data.acknowledged){
                     alert('review placed successfully')
                     form.reset();

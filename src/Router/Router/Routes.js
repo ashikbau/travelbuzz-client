@@ -1,5 +1,6 @@
 import Blog from "../../Pages/Blog/Blog";
 import Register from "../../Pages/LogIn/Register/Register";
+import MyReview from "../../Pages/MyReview";
 import Review from "../../Review/Review";
 import ShowReview from "../../Review/ShowReview/ShowReview";
 import ServiceDetails from "../../ServiceDetails/ServiceDetails";
@@ -52,8 +53,12 @@ const router = createBrowserRouter([
                 
             },
             {
-                path:"/showreview",
+                path:"/reviews",
                 element:<ShowReview></ShowReview>
+            },
+            {
+                path:"/myreview",
+                element:<MyReview></MyReview>
             }
 
             

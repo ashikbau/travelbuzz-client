@@ -61,12 +61,13 @@ const handleLogOut = () => {
       <li tabIndex={0}>
        
       
-            <Link href="#deets">
+            <nav href="#deets">
               {
                 user?.uid ?
                   <>
                     <span>{user?.displayName}</span>
                     <button onClick={handleLogOut} variant="light" >Log out</button>
+                    <Link className='mx-2' to='/myreview'>MyReview</Link>
                   </>
                   :
                   <>
@@ -76,7 +77,7 @@ const handleLogOut = () => {
               }
 
 
-            </Link>
+            </nav>
             <Link eventKey={2} href="#memes">
               {user?.photoURL ?
                 <image

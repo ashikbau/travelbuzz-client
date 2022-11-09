@@ -4,7 +4,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
 
 const ServiceItems = ({ser}) => {
-    console.log(ser)
+    
     const {_id,service,rating,price,description,img} = ser
     return (
         <div className="card w-96 mr-4 my-4 bg-base-100 shadow-xl">
