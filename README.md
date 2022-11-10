@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+My Projects Description
+Project Name: TravelBuzz
+Live Link :
+Here I tried to implement CURD operations. I also applied react-router dom , I react tailwind and daisyUI. I tried to implement my tast very steps. 

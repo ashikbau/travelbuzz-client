@@ -1,10 +1,13 @@
+import AddService from "../../Pages/AddService/AddService";
 import Blog from "../../Pages/Blog/Blog";
+import Edit from "../../Pages/Edit/Edit";
 import Register from "../../Pages/LogIn/Register/Register";
 import MyReview from "../../Pages/MyReview";
 import Review from "../../Review/Review";
 import ShowReview from "../../Review/ShowReview/ShowReview";
 import ServiceDetails from "../../ServiceDetails/ServiceDetails";
 import Services from "../../Services/Services";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../layout/Main");
@@ -20,6 +23,7 @@ const router = createBrowserRouter([
                 path:'/',
                 element:<Home></Home>,
                 loader: ()=> fetch('http://localhost:5000/services')
+                
             },
             {
                 path:'/login',
@@ -48,17 +52,27 @@ const router = createBrowserRouter([
             },
             {
                 path:'/review/:id',
-                element:<Review></Review>,
+                element:<PrivateRoute><Review></Review></PrivateRoute>,
                 loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
                 
             },
             {
                 path:"/reviews",
-                element:<ShowReview></ShowReview>
+                element:<PrivateRoute><ShowReview></ShowReview></PrivateRoute>
             },
             {
                 path:"/myreview",
                 element:<MyReview></MyReview>
+            },
+            {
+                path:"/edit/:id",
+               
+                element:<Edit></Edit>
+            },
+            {
+                path:'/addservice',
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/addservice')
             }
 
             

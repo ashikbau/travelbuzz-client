@@ -54,7 +54,7 @@ const handleLogOut = () => {
             <Link className='mx-2' to='/blog'>Blog</Link>
             
             <Link className='mx-2' to='/login'>LogIn</Link>
-            <Link className='mx-2' to='/register'>Register</Link>
+            {/* <Link className='mx-2' to='/register'>Register</Link> */}
             <Link className='mx-2' to='/servicess'>Servises</Link>
             
      </li>
@@ -68,6 +68,7 @@ const handleLogOut = () => {
                     <span>{user?.displayName}</span>
                     <button onClick={handleLogOut} variant="light" >Log out</button>
                     <Link className='mx-2' to='/myreview'>MyReview</Link>
+                    <Link className='mx-2' to='/addservice'>AddService</Link>
                   </>
                   :
                   <>

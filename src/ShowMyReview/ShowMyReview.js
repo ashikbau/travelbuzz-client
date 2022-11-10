@@ -1,8 +1,8 @@
 
 
-const ShowMyReview = ({review,handleDelete,handleStatusUpdate}) => {
-    console.log(review)
-    const {service,name, email,message,imageURL,_id,status} = review;
+const ShowMyReview = ({review,handleDelete,handleEditReview}) => {
+    // console.log(review)
+    const {service,name, email,message,imageURL,_id} = review;
     
 
 
@@ -35,7 +35,8 @@ const ShowMyReview = ({review,handleDelete,handleStatusUpdate}) => {
         </td>
         
         <th>
-          <button onClick={() => handleStatusUpdate(_id)} className="btn btn-ghost btn-xs">{status? status : 'pending'}</button>
+          
+          <button onClick={() => handleEditReview(_id)} className="btn btn-ghost btn-xs">edit</button>
         </th>
       </tr>
     );
