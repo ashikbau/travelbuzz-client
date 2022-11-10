@@ -14,7 +14,7 @@ const Edit = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/review`,{
+        fetch(`https://y-bay.vercel.app/review`,{
             method:'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -53,7 +53,7 @@ const Edit = () => {
 
        }
 
-       fetch(`http://localhost:5000/reviews/${id}`,{
+       fetch(`https://y-bay.vercel.app/reviews/${id}`,{
         method:'PATCH',
         headers:{
             'Content-type':'application/json'
@@ -63,6 +63,8 @@ const Edit = () => {
        })
        .then(res=>res.json())
        .then(data => console.log(data))
+      
+
        .catch(err=>console.log(err))
 
 

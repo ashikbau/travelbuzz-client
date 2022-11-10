@@ -30,7 +30,7 @@ const LogIn = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://y-bay.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

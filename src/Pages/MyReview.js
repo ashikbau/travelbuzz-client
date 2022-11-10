@@ -13,7 +13,7 @@ const MyReview = () => {
     const [reviews,setReviews] = useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://y-bay.vercel.app/reviews?email=${user?.email}`)
 
 
         .then(res => res.json())
@@ -28,7 +28,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this review');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://y-bay.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
                 
             })
@@ -48,7 +48,7 @@ const MyReview = () => {
         navigate(`/edit/${id}`)
         
 
-        // fetch(`http://localhost:5000/reviews/${id}`, {
+        // fetch(`https://y-bay.vercel.app/reviews/${id}`, {
         //     method: 'PATCH',
         //     headers: {
         //         'content-type': 'application/json',

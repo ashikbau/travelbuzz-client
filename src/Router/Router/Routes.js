@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader: ()=> fetch('http://localhost:5000/services')
+                loader: ()=> fetch('https://y-bay.vercel.app/services')
                 
             },
             {
@@ -41,19 +41,19 @@ const router = createBrowserRouter([
             {
                 path:'/servicess',
                 element:<Services></Services>,
-                loader: ()=> fetch('http://localhost:5000/servicess')
+                loader: ()=> fetch('https://y-bay.vercel.app/servicess')
             },
             {
                 path:'/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=> fetch(`https://y-bay.vercel.app/services/${params.id}`)
 
 
             },
             {
                 path:'/review/:id',
                 element:<PrivateRoute><Review></Review></PrivateRoute>,
-                loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=> fetch(`https://y-bay.vercel.app/services/${params.id}`)
                 
             },
             {
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
             {
                 path:'/addservice',
                 element: <PrivateRoute><AddService></AddService></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/addservice')
+                loader: () => fetch('https://y-bay.vercel.app/addservice')
             }
 
             

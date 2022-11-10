@@ -27,7 +27,7 @@ const {service,_id} = useLoaderData();
             message,
             imageURL
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://y-bay.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
